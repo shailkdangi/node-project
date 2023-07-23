@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 const empschema = new Schema({
-    firstname: {
+    username: {
         type: String,
         required: true
     },
-    lastname: {
+    password: {
         type: String,
         required: true
+    },
+    jwttoken: {
+        type: String
     }
 });
 

@@ -1,7 +1,8 @@
-require('dotenv').config(); 
+require('dotenv').config();
 const connectDB = require('./config');
 const mongoose = require('mongoose')
 const path = require("path");
+const verifyJwt = require('./middleware/verifyJwt');
 const { Logger } = require("./logEvents");
 
 connectDB();
@@ -18,20 +19,22 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(Logger);
 const Whitelist = ["http://localhost"];
 const coresOptions = {
-    origin: (origin, callback) => {}
+    origin: (origin, callback) => { }
 }
 //app.use(cors());
-
+app.use(express.json());
+app.use("/auth", require("./routes/auth"));
+app.use(verifyJwt);
 app.use("/", require("./routes/roots"));
 app.use("/employee", require("./routes/employee"));
-mongoose.connection.once('open', ()=>{
+mongoose.connection.once('open', () => {
 
     console.log('mongodb connected!');
     app.listen(PORT, () => console.log(`Server connected on ${PORT}`));
 });
- 
 
- 
+
+
 
 
 
