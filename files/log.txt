@@ -1,0 +1,17 @@
+GET	/allemployee
+GET	/employee/allemployee
+GET	/employee/allemployee
+GET	/
+GET	/employee
+GET	/employee
+GET	/favicon.ico
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
+GET	/employee
